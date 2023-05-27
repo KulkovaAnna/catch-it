@@ -1,0 +1,9 @@
+.game {
+  width: 100vw;
+  height: calc(9 / 16 * 100vw);
+  background-image: url('../../common/assets/bg.jpg');
+  background-size: contain;
+  position: relative;
+  max-height: 100%;
+  overflow: hidden;
+}

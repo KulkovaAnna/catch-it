@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GameSession from './features/GameSession/class';
+import Player from './features/Player/class';
+import Rules from './features/Rules/class';
+import Game from './features/Game/component';
+
+const player = new Player({ name: 'Anna' });
+const rules = new Rules({
+  playerMovingSpeed: 10,
+  playerMovingStep: 0.1,
+  itemsGeneratingFrequency: 2000,
+  initialItemsFallingSpeed: 10,
+  maxIemsFallingSpeed: 1,
+  speedMultiplier: 1,
+});
+const game = new GameSession(player, rules);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Game gameSession={game} />
     </div>
   );
 }
